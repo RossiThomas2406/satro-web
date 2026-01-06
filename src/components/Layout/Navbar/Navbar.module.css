@@ -1,60 +1,206 @@
+/* Wrapper para fijar el navbar arriba */
+.navbarWrapper {
+    width: 100%;
+    position: fixed; 
+    top: 0;
+    z-index: 1000;
+}
+
+/* --- TOP BAR --- */
+.topBar {
+    background-color: var(--secondary-color); /* Negro/Gris oscuro */
+    color: #ccc;
+    font-size: 0.85rem;
+    padding: 8px 0;
+}
+
+.topBarContainer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-end; /* Alineado a la derecha */
+    gap: 2rem;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.contactItem:hover {
+    color: var(--white);
+}
+
+/* --- HEADER --- */
 .header {
-  background-color: var(--white);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  height: 80px;
+    background-color: var(--white);
+    /* Altura de 90px para dar presencia */
+    height: 90px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Sombra suave */
+    position: relative; 
 }
 
 .container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 20px;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: var(--primary-color);
-  letter-spacing: 1px;
+/* --- LOGO COMPUESTO --- */
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre el icono y el texto */
+    text-decoration: none;
 }
 
+.logo img {
+    height: 55px; /* Tamaño controlado para que no se pixele */
+    width: auto;
+    object-fit: contain;
+    /* Sombra sutil para despegar el logo del fondo */
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+/* TEXTO DE MARCA (La clave para la legibilidad) */
+.brandName {
+    font-family: 'Arial', sans-serif; /* O tu fuente principal */
+    font-size: 1.5rem; /* Tamaño grande */
+    font-weight: 900; /* Extra negrita para impacto */
+    color: var(--secondary-color); /* Gris oscuro (#1a1a1a) */
+    letter-spacing: -0.5px;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* --- NAV DESKTOP --- */
 .navLinks {
-  display: flex;
-  gap: 30px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    list-style: none;
 }
 
 .link {
-  font-weight: 500;
-  transition: color 0.3s ease;
-  font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--secondary-color);
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .link:hover {
-  color: var(--primary-color);
-}
-
-.btnContacto {
-  background-color: var(--primary-color);
-  color: var(--white);
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.btnContacto:hover {
-  background-color: #003366;
-  color: var(--white) !important;
+    color: var(--primary-color);
 }
 
 .activeLink {
-  color: var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
-  padding-bottom: 2px;
+    color: var(--primary-color);
+}
+
+/* Botón Contacto Destacado */
+.btnContacto {
+    background-color: var(--primary-color);
+    color: var(--white) !important;
+    padding: 10px 25px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
+}
+
+.btnContacto:hover {
+    background-color: transparent;
+    color: var(--primary-color) !important;
+}
+
+/* --- HAMBURGER --- */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--secondary-color);
+}
+
+/* --- MOBILE --- */
+@media (max-width: 768px) {
+    /* Ocultamos TopBar y Nav Desktop */
+    .topBar, .desktopNav {
+        display: none;
+    }
+
+    .header {
+        height: 70px; /* Header más compacto en celular */
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    /* Ajuste de Logo en Mobile */
+    .logo img { height: 40px; }
+    .brandName { font-size: 1.4rem; }
+
+    /* Menú Desplegable */
+    .mobileMenu {
+        position: absolute;
+        top: 70px; /* Debe coincidir con height del header mobile */
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        padding: 0;
+        animation: slideDown 0.3s ease-out;
+        border-top: 1px solid #eee;
+    }
+
+    .mobileLinks {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobileLinks li { width: 100%; }
+
+    .mobileLinks a {
+        display: block;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid #f5f5f5;
+        color: var(--secondary-color);
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s;
+        text-transform: uppercase;
+    }
+
+    .mobileLinks a:hover {
+        background-color: #fafafa;
+        color: var(--primary-color);
+    }
+
+    .mobileBtn {
+        background-color: var(--primary-color) !important;
+        color: white !important;
+        margin: 20px auto !important; 
+        width: 85% !important; 
+        border: none;
+        border-radius: 4px;
+    }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }

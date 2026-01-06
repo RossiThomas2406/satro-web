@@ -1,8 +1,8 @@
 :root {
-  --primary-color: #004a8f; /* Azul Satro */
-  --secondary-color: #1a1a1a; /* Texto oscuro */
-  --accent-color: #e6e6e6; /* Gris claro fondos */
+  --primary-color: #E30613; /* Rojo vibrante Satro */
+  --secondary-color: #1a1a1a; /* Casi negro para textos */
   --white: #ffffff;
+  --gray-light: #f4f4f4;
   --font-main: system-ui, -apple-system, sans-serif;
   --max-width: 1200px; /* Ancho máximo del contenido */
 }

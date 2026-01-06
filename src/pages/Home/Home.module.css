@@ -4,155 +4,301 @@
 
 /* --- HERO SECTION --- */
 .hero {
-    height: 85vh; /* Mantenemos la altura imponente */
+    height: 85vh;
     width: 100%;
-background: linear-gradient(rgba(0, 74, 143, 0.7), rgba(0, 0, 0, 0.6)), /* Subí un poco la opacidad azul */
-                url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1920&auto=format&fit=crop'); /* FOTO DE CAMIONES */
+    
     background-size: cover;
-    background-position: center;
+    /* Ajuste para ver la cabina a la izquierda */
+    background-position: center left; 
+    background-attachment: fixed; /* Efecto Parallax elegante */
+    
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    /* ALINEACIÓN: Empuja todo el contenido a la DERECHA */
+    justify-content: flex-end; 
+    
+    padding: 0 5%;
     color: var(--white);
-    padding: 0 20px;
-
-    /* --- AGREGAMOS ESTO PARA ROMPER EL CUADRADO --- */
-    /* Recorta la esquina inferior derecha hacia arriba */
+    
+    /* El corte diagonal característico */
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    /* Agregamos un poco de padding extra abajo para que el contenido no quede muy pegado al corte */
     padding-bottom: 4rem;
 }
 
 .heroContent {
-    max-width: 800px;
-    animation: fadeIn 1s ease-in;
+    max-width: 650px;
+    z-index: 2;
+    animation: fadeInUp 1s ease-out;
+    
+    /* ALINEACIÓN DE TEXTO: Derecha */
+    text-align: right; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Alinea logo y botones a la derecha */
+}
+
+/* LOGO EN HERO */
+.heroLogo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border-radius: 4px;
+    animation: fadeInLogo 0.8s ease-out;
 }
 
 .title {
     font-size: 3.5rem;
     font-weight: 800;
-    margin-bottom: 1rem;
-    line-height: 1.2;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
     text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.highlight {
+    color: var(--primary-color);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
 .subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
     font-weight: 300;
+    line-height: 1.6;
+    color: #e0e0e0;
+    
+    /* Borde de acento a la derecha */
+    border-right: 4px solid var(--primary-color);
+    padding-right: 1rem;
+    margin-left: auto; 
 }
 
-.ctaButton {
+/* --- BOTONES --- */
+.buttonGroup {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end; 
+}
+
+.primaryBtn {
     display: inline-block;
     padding: 15px 35px;
-    background-color: var(--white);
-    color: var(--primary-color);
-    font-weight: bold;
-    border-radius: 5px;
-    font-size: 1.1rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
     transition: all 0.3s ease;
-    border: 2px solid var(--white);
+    border: 2px solid var(--primary-color);
 }
 
-.ctaButton:hover {
+.primaryBtn:hover {
     background-color: transparent;
     color: var(--white);
 }
 
-/* --- SECCIÓN INTRO --- */
-.introSection {
-    padding: 5rem 2rem;
-    text-align: center;
+.secondaryBtn {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: transparent;
+    color: var(--white);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--white);
+}
+
+.secondaryBtn:hover {
     background-color: var(--white);
+    color: var(--secondary-color);
+}
+
+/* --- SECCIÓN INTRO MEJORADA --- */
+.introSection {
+    padding: 6rem 2rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.introContainer {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.introHeader {
+    margin-bottom: 4rem;
+}
+
+.tagline {
+    display: block;
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 700;
 }
 
 .sectionTitle {
-    color: var(--primary-color);
-    font-size: 2.2rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-    display: inline-block;
+    color: var(--secondary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
 }
 
-.sectionTitle::after {
-    content: '';
-    display: block;
+.separator {
     width: 60px;
     height: 4px;
     background-color: var(--primary-color);
-    margin: 10px auto 0;
-}
-
-.introText {
-    max-width: 800px;
     margin: 0 auto;
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.8;
+    border-radius: 2px;
 }
 
-/* --- GRID DE SERVICIOS --- */
-.servicesPreview {
-    padding: 4rem 2rem;
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
-.grid {
+/* --- GRID DE VALORES (Tarjetas) --- */
+.valuesGrid {
     display: grid;
-    /* Magia responsive: columnas de mínimo 300px */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    margin-bottom: 5rem;
 }
 
-.card {
+.valueCard {
     background: var(--white);
-    padding: 2rem;
+    padding: 2.5rem 2rem;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid transparent;
+}
+
+.valueCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
     border-top: 4px solid var(--primary-color);
+}
+
+.iconBox {
+    background-color: #ffebee;
+    color: var(--primary-color);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+    transition: all 0.3s ease;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+.valueCard:hover .iconBox {
+    background-color: var(--primary-color);
+    color: var(--white);
 }
 
-.cardTitle {
-    font-size: 1.4rem;
+.valueCard h3 {
+    font-size: 1.5rem;
     color: var(--secondary-color);
     margin-bottom: 1rem;
+    font-weight: 700;
 }
 
-.cardText {
+.valueCard p {
     color: #666;
-    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 1rem;
 }
 
-.cardLink {
-    color: var(--primary-color);
-    font-weight: bold;
-    align-self: flex-start;
+/* --- CINTA DE ESTADÍSTICAS (Stats Strip) --- */
+.statsStrip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-color);
+    border-radius: 12px;
+    padding: 3rem;
+    color: var(--white);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-.cardLink:hover {
-    text-decoration: underline;
+.statItem {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Animación simple */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+.statItem strong {
+    font-size: 3.5rem;
+    line-height: 1;
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.statItem span {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.statDivider {
+    width: 1px;
+    height: 60px;
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Ajustes Mobile */
+@keyframes fadeInLogo {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
-    .title { font-size: 2.2rem; }
-    .hero { height: 70vh; }
+    .hero {
+        justify-content: center; /* Vuelve al centro */
+        text-align: center;
+        background-position: center;
+        padding: 0 20px;
+        padding-bottom: 4rem;
+    }
+    .heroContent { 
+        text-align: center;
+        margin: 0 auto;
+        align-items: center; /* Logo centrado */
+    }
+    .title { font-size: 2.5rem; }
+    .subtitle { 
+        border-right: none; 
+        padding-right: 0; 
+        margin-left: 0;
+    }
+    .buttonGroup { 
+        justify-content: center;
+        flex-direction: column; 
+    }
+    
+    /* Stats Mobile */
+    .statsStrip {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+    }
+    .statDivider {
+        width: 60px;
+        height: 1px;
+    }
+    .valueCard {
+        padding: 2rem 1.5rem;
+    }
 }

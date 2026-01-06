@@ -1,101 +1,232 @@
-/* Header consistente con las otras páginas */
+.pageWrapper {
+    width: 100%;
+    background-color: #fcfcfc; /* Fondo muy sutil */
+}
+
+/* --- HEADER (Consistente con Calidad y Home) --- */
 .header {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 74, 143, 0.8)),
-                url('https://images.unsplash.com/photo-1566576912902-1d6ebc123d8c?q=80&w=1920&auto=format&fit=crop'); /* Foto industrial/logística */
+    height: 50vh; 
+    min-height: 400px;
+    width: 100%;
+    /* Gradiente Rojo Corporativo */
+    background: linear-gradient(135deg, rgba(160, 20, 20, 0.85), rgba(20, 20, 20, 0.9)),
+                url('https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1920&auto=format&fit=crop');
+    
     background-size: cover;
     background-position: center;
-    height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--white);
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     text-align: center;
+    color: var(--white);
+    
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    padding-bottom: 4rem;
+    margin-bottom: 4rem; /* Margen para no pegar contenido */
 }
 
 .title {
     font-size: 3rem;
     font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    margin-bottom: 0.5rem;
+    animation: fadeIn 1s ease-in;
 }
 
-/* Contenedor principal */
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    opacity: 0.9;
+    letter-spacing: 1px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
 .container {
-    padding: 4rem 20px;
+    padding: 2rem 20px 6rem 20px;
     max-width: var(--max-width);
     margin: 0 auto;
 }
 
-/* Fila de Servicio (Zig Zag) */
+/* --- FILA DE SERVICIO --- */
 .serviceRow {
     display: flex;
     align-items: center;
-    gap: 4rem;
-    margin-bottom: 6rem;
+    gap: 5rem; /* Más espacio entre imagen y texto */
+    margin-bottom: 8rem; /* Separación clara entre servicios */
+    /* Animación de entrada al hacer scroll (requeriría IntersectionObserver en JS, 
+       pero por CSS simple usamos fadeIn) */
+    animation: slideUp 0.8s ease-out;
 }
 
-/* Invertir orden en las filas pares (2, 4, etc) */
+/* Zig-Zag: Invierte orden en pares */
 .serviceRow:nth-child(even) {
     flex-direction: row-reverse;
 }
 
+/* --- IMAGEN --- */
 .imageBox {
     flex: 1;
-    height: 350px;
-    border-radius: 12px;
+    height: 400px; /* Un poco más alto para impacto */
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .imageBox img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
+}
+
+/* Efecto Hover Premium */
+.imageBox:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(211, 47, 47, 0.15); /* Sombra roja sutil */
 }
 
 .imageBox:hover img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
+/* --- TEXTO --- */
 .textBox {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.iconWrapper {
+    background-color: var(--primary-color);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
 }
 
 .serviceTitle {
-    color: var(--primary-color);
-    font-size: 2rem;
+    color: var(--secondary-color);
+    font-size: 2.2rem;
+    font-weight: 800;
     margin-bottom: 1rem;
-    border-left: 5px solid var(--primary-color);
-    padding-left: 15px;
+    line-height: 1.2;
+}
+
+.divider {
+    width: 50px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin-bottom: 1.5rem;
 }
 
 .serviceDesc {
     font-size: 1.1rem;
     color: #555;
-    margin-bottom: 1.5rem;
-    white-space: pre-line; /* Respeta los saltos de línea */
+    margin-bottom: 2rem;
+    white-space: pre-line;
+    line-height: 1.8;
+}
+
+/* --- BADGES / TAGS --- */
+.tagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .badge {
     display: inline-block;
-    background-color: #eef2f6;
+    /* Fondo rojizo muy suave para branding */
+    background-color: #fff5f5; 
     color: var(--primary-color);
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-right: 10px;
+    padding: 6px 14px;
+    border-radius: 30px; /* Badges más redondos */
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid #ffebee;
+    transition: all 0.3s ease;
 }
 
-/* Responsive: En celular todo es columna */
+.badge:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* --- CALL TO ACTION FINAL --- */
+.ctaSection {
+    background-color: var(--secondary-color); /* Fondo oscuro */
+    color: white;
+    padding: 4rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 4rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.ctaSection h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 35px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+    background-color: white;
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Animaciones */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Responsive */
 @media (max-width: 768px) {
+    .header { height: 40vh; }
+    .title { font-size: 2rem; }
+    
     .serviceRow {
-        flex-direction: column !important; /* Forzamos columna siempre en móvil */
+        flex-direction: column !important;
         gap: 2rem;
+        margin-bottom: 5rem;
+        text-align: left;
     }
     
     .imageBox {
         width: 100%;
         height: 250px;
     }
+    
+    .textBox {
+        align-items: flex-start; /* Alineación izquierda en móvil */
+    }
+    
+    .ctaSection h3 { font-size: 1.5rem; }
 }

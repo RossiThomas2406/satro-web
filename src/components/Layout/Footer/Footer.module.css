@@ -1,41 +1,85 @@
 .footer {
-    background-color: #111; /* Casi negro */
-    color: #bbb; /* Gris claro para texto no prioritario */
-    padding: 4rem 20px 1rem; /* Padding top grande, bottom chico para el copyright */
+    background-color: #111; /* Fondo oscuro premium */
+    color: #bbb;
+    padding-top: 5rem;
     font-size: 0.95rem;
-    margin-top: auto; /* Truco de Flexbox: empuja el footer al fondo si hay poco contenido */
+    margin-top: auto;
+    border-top: 5px solid var(--primary-color); /* Borde rojo característico */
 }
 
 .container {
     max-width: var(--max-width);
     margin: 0 auto;
+    padding: 0 20px 4rem 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid #333; /* Línea separadora sutil */
+    /* Responsive: 3 columnas que se ajustan */
+    grid-template-columns: 1.5fr 1fr 1.2fr; 
+    gap: 4rem;
 }
 
-/* Columna Marca */
-.brand h2 {
-    color: var(--white);
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    letter-spacing: 1px;
-}
-
-.brand p {
-    line-height: 1.6;
+/* --- COLUMNA 1: MARCA --- */
+.logoWrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
     margin-bottom: 1.5rem;
 }
 
-/* Columna Links */
-.links h3, .contact h3 {
+.footerLogo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    /* Filtro para asegurar que se vea bien sobre oscuro si es necesario, 
+       o dejar natural si el PNG tiene fondo transparente */
+}
+
+.brandName {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -1px;
+}
+
+.brandText {
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: #999;
+    max-width: 350px;
+}
+
+/* Redes Sociales */
+.socialIcons {
+    display: flex;
+    gap: 15px;
+}
+
+.socialIcons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #222;
+    color: var(--white);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+}
+
+.socialIcons a:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* --- COLUMNA 2: LINKS --- */
+.linksColumn h3, .contactColumn h3 {
     color: var(--white);
     font-size: 1.2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    font-weight: 700;
 }
 
 .linkList {
@@ -44,36 +88,104 @@
 }
 
 .linkList li {
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
 }
 
 .linkList a {
     text-decoration: none;
     color: #bbb;
-    transition: color 0.3s ease, padding-left 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.chevron {
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
 }
 
 .linkList a:hover {
-    color: var(--primary-color);
-    padding-left: 5px; /* Efecto visual de movimiento */
+    color: var(--white);
+    padding-left: 5px;
 }
 
-/* Columna Contacto */
+.linkList a:hover .chevron {
+    transform: translateX(3px); /* Pequeña animación de flecha */
+}
+
+/* --- COLUMNA 3: CONTACTO --- */
 .contactItem {
-    margin-bottom: 1rem;
     display: flex;
     align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 1.5rem;
 }
 
 .icon {
-    margin-right: 10px;
     color: var(--primary-color);
+    flex-shrink: 0;
+    margin-top: 3px;
 }
 
-/* Copyright (Abajo de todo) */
-.copyright {
-    text-align: center;
-    padding-top: 1.5rem;
+.contactLabel {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #666;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.contactItem p {
+    color: #ddd;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* --- COPYRIGHT BAR --- */
+.copyrightBar {
+    background-color: #0a0a0a; /* Aún más oscuro */
+    padding: 1.5rem 20px;
+    border-top: 1px solid #222;
+}
+
+.copyrightContainer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 0.85rem;
     color: #666;
+}
+
+.legalLinks {
+    display: flex;
+    gap: 20px;
+}
+
+.legalLinks span {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.legalLinks span:hover {
+    color: var(--white);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Una sola columna en mobile */
+        gap: 3rem;
+    }
+
+    .brandText { max-width: 100%; }
+
+    .copyrightContainer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
 }
