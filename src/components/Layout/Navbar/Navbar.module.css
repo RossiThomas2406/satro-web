@@ -62,19 +62,22 @@
 }
 
 .logo img {
-    height: 55px; /* Tamaño controlado para que no se pixele */
-    width: auto;
+    /* AUMENTAMOS EL TAMAÑO AQUÍ */
+    height: 86px; /* Antes estaba en 60px o auto */
+    width: auto;  /* Mantiene la proporción */
     object-fit: contain;
-    /* Sombra sutil para despegar el logo del fondo */
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    /* Sombra suave para darle profundidad y nitidez */
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+    /* Un pequeño padding opcional si el logo está muy al borde */
+    padding: 2px;
 }
 
 /* TEXTO DE MARCA (La clave para la legibilidad) */
 .brandName {
-    font-family: 'Arial', sans-serif; /* O tu fuente principal */
-    font-size: 1.5rem; /* Tamaño grande */
-    font-weight: 900; /* Extra negrita para impacto */
-    color: var(--secondary-color); /* Gris oscuro (#1a1a1a) */
+    font-family: 'Arial', sans-serif;
+    font-size: 1.6rem; /* Un poco más grande para equilibrar */
+    font-weight: 900; 
+    color: var(--secondary-color); 
     letter-spacing: -0.5px;
     line-height: 1;
     text-transform: uppercase;

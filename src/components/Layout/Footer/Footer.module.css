@@ -1,10 +1,10 @@
 .footer {
-    background-color: #111; /* Fondo oscuro premium */
+    background-color: #111;
     color: #bbb;
     padding-top: 5rem;
     font-size: 0.95rem;
     margin-top: auto;
-    border-top: 5px solid var(--primary-color); /* Borde rojo característico */
+    border-top: 5px solid var(--primary-color);
 }
 
 .container {
@@ -12,32 +12,23 @@
     margin: 0 auto;
     padding: 0 20px 4rem 20px;
     display: grid;
-    /* Responsive: 3 columnas que se ajustan */
+    /* Columnas bien distribuidas en Desktop */
     grid-template-columns: 1.5fr 1fr 1.2fr; 
     gap: 4rem;
+    align-items: start;
 }
 
 /* --- COLUMNA 1: MARCA --- */
 .logoWrapper {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    display: block;
     margin-bottom: 1.5rem;
 }
 
 .footerLogo {
-    height: 50px;
-    width: auto;
+    width: 220px; 
+    height: auto; 
     object-fit: contain;
-    /* Filtro para asegurar que se vea bien sobre oscuro si es necesario, 
-       o dejar natural si el PNG tiene fondo transparente */
-}
-
-.brandName {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--white);
-    letter-spacing: -1px;
+    display: block;
 }
 
 .brandText {
@@ -80,6 +71,9 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
+    /* Decoración lateral */
+    border-left: 3px solid var(--primary-color);
+    padding-left: 10px;
 }
 
 .linkList {
@@ -111,7 +105,7 @@
 }
 
 .linkList a:hover .chevron {
-    transform: translateX(3px); /* Pequeña animación de flecha */
+    transform: translateX(3px);
 }
 
 /* --- COLUMNA 3: CONTACTO --- */
@@ -145,7 +139,7 @@
 
 /* --- COPYRIGHT BAR --- */
 .copyrightBar {
-    background-color: #0a0a0a; /* Aún más oscuro */
+    background-color: #0a0a0a;
     padding: 1.5rem 20px;
     border-top: 1px solid #222;
 }
@@ -154,38 +148,99 @@
     max-width: var(--max-width);
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    font-size: 0.85rem;
-    color: #666;
+    font-size: 0.9rem;
+    color: #bbbbbb; 
 }
 
-.legalLinks {
-    display: flex;
-    gap: 20px;
+/* Corrección para que YAMANIL S.A. se vea blanco */
+.copyrightContainer strong {
+    color: #ffffff !important; 
+    font-weight: 800;
+    margin: 0 4px;
 }
 
-.legalLinks span {
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.legalLinks span:hover {
-    color: var(--white);
-}
-
-/* --- RESPONSIVE --- */
+/* --- RESPONSIVE OPTIMIZADO (MÓVIL) --- */
 @media (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr; /* Una sola columna en mobile */
-        gap: 3rem;
+    .footer {
+        padding-top: 3rem;
     }
 
-    .brandText { max-width: 100%; }
+    .container {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 2.5rem;
+        padding: 0 20px 3rem 20px;
+        text-align: center;
+    }
 
+    /* Logo más pequeño y centrado */
+    .footerLogo {
+        width: 180px; 
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .brandText { 
+        max-width: 100%; 
+        margin: 0 auto 1.5rem auto;
+        font-size: 0.9rem;
+    }
+    
+    .socialIcons {
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    /* Títulos con subrayado en vez de borde lateral */
+    .linksColumn h3, .contactColumn h3 {
+        border-left: none;
+        border-bottom: 2px solid var(--primary-color);
+        display: inline-block;
+        padding-bottom: 5px;
+        padding-left: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Links más fáciles de tocar */
+    .linkList a {
+        justify-content: center;
+        padding: 8px 0;
+        font-size: 1rem;
+    }
+    
+    /* Contacto en vertical para mejor lectura en pantallas angostas */
+    .contactItem {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 8px;
+        border-bottom: 1px solid #222;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .contactItem:last-child {
+        border-bottom: none;
+    }
+    
+    .icon {
+        margin: 0;
+        width: 24px;
+        height: 24px;
+    }
+    
+    /* Copyright en columna si falta espacio */
     .copyrightContainer {
         flex-direction: column;
-        gap: 1rem;
+        padding: 0 10px;
         text-align: center;
+        font-size: 0.8rem;
+    }
+    
+    .copyrightContainer strong {
+        display: block;
+        margin-top: 5px;
     }
 }

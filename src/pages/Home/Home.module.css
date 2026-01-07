@@ -4,24 +4,23 @@
 
 /* --- HERO SECTION --- */
 .hero {
-    /* CAMBIO 1: Usamos min-height en vez de height fijo. 
-       Esto permite que el banner crezca si el contenido es mucho. */
     min-height: 85vh; 
     width: 100%;
     
     background-size: cover;
-    background-position: center left; 
-    background-attachment: fixed;
+    background-position: center center; /* Centrado para ver bien el camión */
+    background-repeat: no-repeat;
     
     display: flex;
     align-items: center;
+    /* Alineamos todo a la derecha como pediste */
     justify-content: flex-end; 
     
     padding: 0 5%;
-    color: var(--white);
+    color: #ffffff; /* Texto blanco por defecto en el hero */
     
-    /* Corte diagonal original para Desktop */
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    /* Clip-path opcional: le da un estilo moderno al corte de abajo */
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
     padding-bottom: 4rem;
 }
 
@@ -33,40 +32,43 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end; 
+    /* Sombra negra detrás de todo el bloque para asegurar lectura */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
 }
 
 .heroLogo {
-    width: 120px;
+    width: 100px;
     height: auto;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    border-radius: 4px;
-    animation: fadeInLogo 0.8s ease-out;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
 }
 
 .title {
     font-size: 3.5rem;
-    font-weight: 800;
+    font-weight: 900;
     line-height: 1.1;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     letter-spacing: -1px;
+    color: #ffffff;
 }
 
 .highlight {
-    color: var(--primary-color);
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    color: var(--primary-color); /* Rojo Yamanil */
+    /* Borde blanco sutil alrededor de las letras rojas para contraste */
+    text-shadow: 1px 1px 0 #fff, 0 2px 10px rgba(0,0,0,0.9);
+    font-style: italic;
 }
 
 .subtitle {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     margin-bottom: 2.5rem;
-    font-weight: 300;
-    line-height: 1.6;
-    color: #e0e0e0;
-    border-right: 4px solid var(--primary-color);
-    padding-right: 1rem;
-    margin-left: auto; 
+    font-weight: 500;
+    line-height: 1.5;
+    color: #f0f0f0;
+    /* Barra roja decorativa a la derecha */
+    border-right: 5px solid var(--primary-color);
+    padding-right: 1.5rem;
 }
 
 /* --- BOTONES --- */
@@ -78,112 +80,163 @@
 
 .primaryBtn, .secondaryBtn {
     display: inline-block;
-    padding: 15px 35px;
-    font-weight: 700;
+    padding: 15px 30px;
+    font-weight: 800;
     text-transform: uppercase;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 50px; /* Botones redondeados estilo Coca-Cola */
     transition: all 0.3s ease;
+    font-size: 0.9rem;
 }
 
 .primaryBtn {
     background-color: var(--primary-color);
-    color: var(--white);
+    color: #fff;
     border: 2px solid var(--primary-color);
+    box-shadow: 0 4px 15px rgba(244, 0, 9, 0.4);
 }
 
 .primaryBtn:hover {
-    background-color: transparent;
-    color: var(--white);
+    background-color: #b30007;
+    border-color: #b30007;
+    transform: translateY(-2px);
 }
 
 .secondaryBtn {
     background-color: transparent;
-    color: var(--white);
-    border: 2px solid var(--white);
+    color: #fff;
+    border: 2px solid #fff;
 }
 
 .secondaryBtn:hover {
-    background-color: var(--white);
-    color: var(--secondary-color);
+    background-color: #fff;
+    color: var(--primary-color);
+    transform: translateY(-2px);
 }
 
-/* ... (Estilos de Intro, Values, Stats igual que antes) ... */
-.introSection { padding: 6rem 2rem; background-color: #f9f9f9; text-align: center; }
+/* --- INTRO SECTION --- */
+.introSection { 
+    padding: 6rem 2rem; 
+    background-color: #fff; 
+    text-align: center; 
+}
+
 .introContainer { max-width: 1100px; margin: 0 auto; }
 .introHeader { margin-bottom: 4rem; }
-.tagline { display: block; color: var(--primary-color); font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
-.sectionTitle { color: var(--secondary-color); font-size: 2.5rem; margin-bottom: 1rem; font-weight: 800; }
-.separator { width: 60px; height: 4px; background-color: var(--primary-color); margin: 0 auto; border-radius: 2px; }
-.valuesGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 5rem; }
-.valueCard { background: var(--white); padding: 2.5rem 2rem; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; border-top: 4px solid transparent; }
-.valueCard:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-top: 4px solid var(--primary-color); }
-.iconBox { background-color: #ffebee; color: var(--primary-color); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; transition: all 0.3s ease; }
-.valueCard:hover .iconBox { background-color: var(--primary-color); color: var(--white); }
-.valueCard h3 { font-size: 1.5rem; color: var(--secondary-color); margin-bottom: 1rem; font-weight: 700; }
-.valueCard p { color: #666; line-height: 1.6; font-size: 1rem; }
-.statsStrip { display: flex; justify-content: center; align-items: center; background-color: var(--secondary-color); border-radius: 12px; padding: 3rem; color: var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
-.statItem { flex: 1; display: flex; flex-direction: column; align-items: center; }
-.statItem strong { font-size: 3.5rem; line-height: 1; font-weight: 900; color: var(--white); margin-bottom: 0.5rem; }
-.statItem span { text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; opacity: 0.8; }
-.statDivider { width: 1px; height: 60px; background-color: rgba(255,255,255,0.2); }
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeInLogo { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
 
-/* --- AJUSTES MOBILE / IPHONE SE --- */
+.tagline { 
+    display: block; 
+    color: var(--primary-color); 
+    font-size: 0.9rem; 
+    letter-spacing: 2px; 
+    text-transform: uppercase; 
+    margin-bottom: 10px; 
+    font-weight: 800; 
+}
+
+.sectionTitle { 
+    color: #000; 
+    font-size: 2.5rem; 
+    margin-bottom: 1rem; 
+    font-weight: 900; 
+}
+
+.separator { 
+    width: 80px; 
+    height: 4px; 
+    background-color: var(--primary-color); 
+    margin: 0 auto; 
+    border-radius: 2px; 
+}
+
+/* GRID CARDS */
+.valuesGrid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 2rem; 
+    margin-bottom: 5rem; 
+}
+
+.valueCard {
+  background: #fff;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Agregamos transición suave a la sombra */
+  border: 1px solid #f0f0f0;
+}
+.valueCard:hover { 
+    transform: translateY(-10px); 
+box-shadow: 
+      0 15px 40px rgba(0,0,0,0.12), 
+      inset 0 -5px 0 var(--primary-color);
+}
+
+.iconBox { 
+    color: var(--primary-color); 
+    margin-bottom: 1.5rem; 
+}
+
+.valueCard h3 { 
+    font-size: 1.4rem; 
+    color: #000; 
+    margin-bottom: 1rem; 
+    font-weight: 700; 
+}
+
+.valueCard p { 
+    color: #555; 
+    line-height: 1.6; 
+}
+
+/* STATS STRIP */
+.statsStrip { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    background-color: #000; /* Fondo negro elegante */
+    border-radius: 12px; 
+    padding: 3rem; 
+    color: #fff; 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2); 
+}
+
+.statItem { flex: 1; display: flex; flex-direction: column; align-items: center; }
+.statItem strong { font-size: 3rem; line-height: 1; font-weight: 900; color: #fff; margin-bottom: 0.5rem; }
+.statItem span { text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; color: #ccc; }
+.statDivider { width: 1px; height: 50px; background-color: rgba(255,255,255,0.2); }
+
+/* ANIMACIONES */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     .hero {
-        /* CAMBIO 2: Más altura en móvil para que entre todo */
-        min-height: 100vh; 
-        
-        /* CAMBIO 3: Padding arriba extra para que el Navbar no tape el logo */
-        padding-top: 100px; 
-        padding-left: 20px;
-        padding-right: 20px;
-        
-        /* CAMBIO 4: Corte diagonal MENOS agresivo en celular */
-        /* Antes era 85%, ahora 93% para ganar espacio abajo */
-        clip-path: polygon(0 0, 100% 0, 100% 93%, 0 100%);
-        
+        min-height: 90vh;
         justify-content: center;
         text-align: center;
+        padding-top: 80px;
+        clip-path: none; /* Quitamos el corte en móvil para ganar espacio */
     }
     
     .heroContent { 
         text-align: center;
         align-items: center; 
-        width: 100%;
-        /* Aseguramos que el contenido tenga espacio abajo para no chocarse con el corte */
-        margin-bottom: 4rem; 
+        margin-right: 0;
     }
 
-    /* Reducimos tamaños para pantallas chicas */
-    .heroLogo {
-        width: 80px; /* Logo más chico */
-        margin-bottom: 1rem;
-    }
-
-    .title { 
-        font-size: 2.2rem; /* Título más chico */
-    }
+    .title { font-size: 2.5rem; }
     
     .subtitle { 
-        font-size: 1rem;
         border-right: none; 
         padding-right: 0; 
-        margin-left: 0;
-        margin-bottom: 2rem;
+        font-size: 1.1rem;
     }
     
     .buttonGroup { 
         justify-content: center;
-        flex-direction: column; 
+        flex-direction: column;
         width: 100%;
-    }
-
-    .primaryBtn, .secondaryBtn {
-        width: 100%; /* Botones ancho completo en celular */
-        padding: 12px 20px;
     }
     
     .statsStrip {
@@ -191,19 +244,5 @@
         gap: 2rem;
     }
     
-    .statDivider {
-        width: 100%;
-        height: 1px;
-    }
-}
-
-/* AJUSTE ESPECÍFICO IPHONE SE / MÓVILES MUY CHICOS (320px - 375px) */
-@media (max-width: 380px) {
-    .title {
-        font-size: 1.8rem; /* Texto aún más chico para que no se corte */
-    }
-    
-    .hero {
-        padding-top: 80px; /* Ajuste fino */
-    }
+    .statDivider { display: none; }
 }

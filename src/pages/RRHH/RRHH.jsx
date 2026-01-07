@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { GraduationCap, ShieldCheck, TrendingUp, Heart, Users, Briefcase } from 'lucide-react';
+import { GraduationCap, ShieldCheck, Heart, Users, Briefcase, Award } from 'lucide-react';
 import styles from './RRHH.module.css';
 
 const RRHH = () => {
@@ -13,8 +13,8 @@ const RRHH = () => {
             <div className={styles.headerIcon}>
                 <Users size={48} />
             </div>
-            <h1 className={styles.title}>Capital Humano</h1>
-            <p className={styles.subtitle}>La columna vertebral de nuestra organización</p>
+            <h1 className={styles.title}>Nuestra Gente</h1>
+            <p className={styles.subtitle}>El motor que impulsa la distribución líder del mercado</p>
         </div>
       </header>
 
@@ -23,51 +23,51 @@ const RRHH = () => {
         {/* Introducción Destacada */}
         <section className={styles.introSection}>
             <p className={styles.introText}>
-              En <strong>SATRO S.A.</strong> consideramos que nuestros colaboradores son el motor de la compañía. 
-              Buscamos calidad y excelencia para brindar un servicio diferenciador, creando un contexto de 
-              <strong> apoyo, credibilidad y diálogo constructivo.</strong>
+              En <strong>YAMANIL S.A.</strong> sabemos que la excelencia logística no se logra solo con camiones, 
+              sino con personas comprometidas. Como <strong>Distribuidor Oficial</strong>, fomentamos una cultura de 
+              trabajo basada en el respeto, la seguridad y el orgullo de representar a la marca número uno del mundo.
             </p>
         </section>
 
         {/* Pilares (Grid de 3) */}
         <div className={styles.pillarsGrid}>
             
-            {/* Pilar 1 */}
+            {/* Pilar 1: Capacitación */}
             <div className={styles.pillarCard}>
                 <div className={styles.iconBox}>
                     <GraduationCap size={32} />
                 </div>
-                <h3 className={styles.pillarTitle}>Capacitación Continua</h3>
+                <h3 className={styles.pillarTitle}>Escuela de Logística</h3>
                 <div className={styles.divider}></div>
                 <p>
-                    Diseñamos planes de formación específicos para cada sector, asegurando el entrenamiento 
-                    constante y la actualización tecnológica en el puesto de trabajo.
+                    Capacitación constante en procesos de preventa, conducción eficiente y manejo de tecnología (Handhelds), 
+                    alineados con los estándares globales de Coca-Cola.
                 </p>
             </div>
             
-            {/* Pilar 2 */}
+            {/* Pilar 2: Seguridad */}
             <div className={styles.pillarCard}>
                 <div className={styles.iconBox}>
                     <ShieldCheck size={32} />
                 </div>
-                <h3 className={styles.pillarTitle}>Seguridad Primero</h3>
+                <h3 className={styles.pillarTitle}>Seguridad Vial y Laboral</h3>
                 <div className={styles.divider}></div>
                 <p>
-                    Compromiso total con la salud y la prevención de riesgos. Actuamos preventivamente 
-                    cumpliendo rigurosamente con todos los requisitos legales y normas de seguridad.
+                    Nuestra prioridad es que cada colaborador regrese sano a casa. 
+                    Cumplimos estrictamente con las normativas de seguridad e higiene en planta y en ruta.
                 </p>
             </div>
 
-            {/* Pilar 3 */}
+            {/* Pilar 3: Pertenencia */}
             <div className={styles.pillarCard}>
                 <div className={styles.iconBox}>
-                    <TrendingUp size={32} />
+                    <Award size={32} />
                 </div>
-                <h3 className={styles.pillarTitle}>Desarrollo Profesional</h3>
+                <h3 className={styles.pillarTitle}>Orgullo y Pertenencia</h3>
                 <div className={styles.divider}></div>
                 <p>
-                    Nuestra motivación es conquistar al capital humano, fomentando relaciones de largo plazo 
-                    y garantizando la evolución del desempeño de cada colaborador.
+                    Valoramos el esfuerzo y la trayectoria. Fomentamos un ambiente donde el crecimiento interno 
+                    es posible para quienes demuestran pasión y compromiso.
                 </p>
             </div>
         </div>
@@ -76,22 +76,20 @@ const RRHH = () => {
         <div className={styles.quoteSection}>
             <Heart size={40} className={styles.quoteIcon} />
             <blockquote className={styles.quoteText}>
-                “En Recursos Humanos, trabajamos para lograr… no ser necesarios”
+                “Llevamos felicidad a miles de hogares, y esa tarea comienza cuidando a quienes la hacen posible.”
             </blockquote>
-            <span className={styles.quoteLabel}>— Filosofía Satro S.A.</span>
+            <span className={styles.quoteLabel}>— Valores Yamanil S.A.</span>
         </div>
 
-        {/* CTA: Sumate al equipo */}
-        <div className={styles.ctaSection}>
-            <div className={styles.ctaContent}>
-                <h3>¿Querés formar parte de nuestro equipo?</h3>
-                <p>Buscamos personas apasionadas por la logística y el trabajo en equipo.</p>
+        <div className={styles.ctaBanner}>
+            <div className={styles.ctaText}>
+                <h3>¿Querés sumarte a nuestro equipo?</h3>
+                <p>Buscamos personas apasionadas por la logística. ¡Envíanos tu CV!</p>
             </div>
             <Link to="/contacto" className={styles.ctaButton}>
-                <Briefcase size={20} /> Enviar CV
+                <Briefcase size={20} /> Enviar mi CV
             </Link>
         </div>
-
       </div>
     </div>
   );

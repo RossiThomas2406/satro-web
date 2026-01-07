@@ -3,8 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail } from 'lucide-react'; 
 import styles from './Navbar.module.css';
 
-// Importamos el logo pequeño (asegúrate que la ruta sea correcta según tu estructura)
-import logoImg from '../../../assets/logoNavbar.png'; 
+// Asegúrate de que este archivo sea el logo circular nuevo
+import logoImg from '../../../assets/logo.png'; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +21,7 @@ const Navbar = () => {
             <div className={styles.topBarContainer}>
                 <div className={styles.contactItem}>
                     <Mail size={14} />
-                    <span>info@satro.com.ar</span>
+                    <span>ventas@yamanil.com.ar</span>
                 </div>
                 <div className={styles.contactItem}>
                     <Phone size={14} />
@@ -34,14 +34,14 @@ const Navbar = () => {
         <header className={styles.header}>
           <div className={styles.container}>
             
-            {/* --- LOGO MEJORADO (Icono + Texto) --- */}
+            {/* --- LOGO YAMANIL --- */}
             <div className={styles.logo}>
-                <Link to="/" onClick={closeMenu}>
-                    {/* Imagen: Actúa como icono/símbolo */}
-                    <img src={logoImg} alt="Logo" />
-                    
-                    {/* Texto HTML: Garantiza legibilidad perfecta */}
-                    <span className={styles.brandName}>SATRO S.A.</span>
+                <Link to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <img src={logoImg} alt="Yamanil Logo" />
+                    <div style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.2' }}>
+                        <span className={styles.brandName}>YAMANIL</span>
+                        <span style={{ fontSize: '0.7rem', fontWeight: '500', color: '#666' }}>Distribuidor Oficial</span>
+                    </div>
                 </Link>
             </div>
 
@@ -58,9 +58,9 @@ const Navbar = () => {
             <nav className={styles.desktopNav}>
               <ul className={styles.navLinks}>
                 <li><Link to="/" className={`${styles.link} ${isActive('/')}`}>Inicio</Link></li>
-                <li><Link to="/calidad" className={`${styles.link} ${isActive('/calidad')}`}>Calidad</Link></li>
-                <li><Link to="/servicios" className={`${styles.link} ${isActive('/servicios')}`}>Servicios</Link></li>
-                <li><Link to="/rrhh" className={`${styles.link} ${isActive('/rrhh')}`}>RRHH</Link></li>
+                <li><Link to="/calidad" className={`${styles.link} ${isActive('/calidad')}`}>Productos</Link></li>
+                <li><Link to="/servicios" className={`${styles.link} ${isActive('/servicios')}`}>Distribución</Link></li>
+                <li><Link to="/rrhh" className={`${styles.link} ${isActive('/rrhh')}`}>Nosotros</Link></li>
                 <li>
                     <Link to="/contacto" className={`${styles.link} ${styles.btnContacto}`}>
                         Contacto
@@ -70,14 +70,14 @@ const Navbar = () => {
             </nav>
           </div>
 
-          {/* MENÚ MOBILE (Desplegable) */}
+          {/* MENÚ MOBILE */}
           {isOpen && (
             <div className={styles.mobileMenu}>
                 <ul className={styles.mobileLinks}>
                     <li><Link to="/" onClick={closeMenu}>Inicio</Link></li>
-                    <li><Link to="/calidad" onClick={closeMenu}>Calidad</Link></li>
-                    <li><Link to="/servicios" onClick={closeMenu}>Servicios</Link></li>
-                    <li><Link to="/rrhh" onClick={closeMenu}>RRHH</Link></li>
+                    <li><Link to="/calidad" onClick={closeMenu}>Productos</Link></li>
+                    <li><Link to="/servicios" onClick={closeMenu}>Distribución</Link></li>
+                    <li><Link to="/rrhh" onClick={closeMenu}>Nosotros</Link></li>
                     <li><Link to="/contacto" onClick={closeMenu} className={styles.mobileBtn}>Contacto</Link></li>
                 </ul>
             </div>

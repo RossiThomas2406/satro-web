@@ -1,293 +1,319 @@
 .container {
     padding-bottom: 4rem;
     width: 100%;
-    background-color: #f9f9f9;
+    background-color: #f4f6f8;
 }
 
 /* --- HEADER --- */
 .header {
-    height: 50vh; 
-    min-height: 400px;
+    height: 45vh; 
+    min-height: 350px;
     width: 100%;
+    
+    /* CAMBIO: Imagen de fondo real de botellas de Coca-Cola */
     background: linear-gradient(135deg, rgba(160, 20, 20, 0.85), rgba(20, 20, 20, 0.9)),
-                url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920&auto=format&fit=crop');
+                url('https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=1920&auto=format&fit=crop');
+                
     background-size: cover;
     background-position: center;
+    
+    /* Efecto Parallax (opcional, si te gusta que la imagen se quede quieta al scrollear) */
+    background-attachment: fixed;
+
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: var(--white);
     
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    
-    padding-bottom: 4rem;
-    
-    /* CAMBIO: Margen inferior para asegurar que no se pegue el contenido */
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
     margin-bottom: 2rem;
+}
+
+.headerContent {
+    max-width: 800px;
+    padding: 0 20px;
+    animation: fadeIn 1s ease-in;
+}
+
+.brandTag {
+    display: inline-block;
+    background-color: rgba(255,255,255,0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
 }
 
 .title {
     font-size: 3.5rem;
     font-weight: 800;
     text-transform: uppercase;
-    text-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    margin-bottom: 0.5rem;
-    animation: fadeIn 1s ease-in;
+    /* Sombra idéntica a la de Nosotros */
+    text-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+    margin-bottom: 1rem;
+    line-height: 1;
+    /* Color blanco puro para igualar */
+    color: #ffffff; 
 }
 
 .headerSubtitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 300;
-    opacity: 0.9;
-    letter-spacing: 1px;
+    opacity: 0.95;
+    line-height: 1.6;
+}
+
+.headerSubtitle strong{
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
 }
 
 /* --- CONTENIDO --- */
 .content {
-    max-width: 1000px;
-    /* CAMBIO: Quitamos márgenes negativos globales y aseguramos centrado */
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
-    position: relative;
-    z-index: 10;
 }
 
-.policySection {
-    background: var(--white);
-    padding: 4rem;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    border-top: 5px solid var(--primary-color);
-    animation: slideUp 0.8s ease-out;
+/* SECCIONES DE CATEGORÍA */
+.categorySection {
+    margin-bottom: 3rem;
 }
 
-.policyHeader {
+.categoryHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
-.subtitle {
-    color: var(--secondary-color);
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-    font-weight: 800;
-}
-
-.separator {
+.iconWrapper {
     width: 60px;
-    height: 4px;
-    background-color: var(--primary-color);
-    margin: 0 auto;
-    border-radius: 2px;
-}
-
-.text {
-    font-size: 1.15rem;
-    color: #555;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* --- GRID DE OBJETIVOS --- */
-.objectivesGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-}
-
-.objectiveCard {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1.5rem;
-    background-color: #fcfcfc;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.objectiveCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    border-color: #ffdce0;
-}
-
-.iconBox {
-    background-color: #ffebee;
-    color: var(--primary-color);
-    padding: 10px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.objectiveCard h4 {
-    color: var(--secondary-color);
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 0.3rem;
-}
-
-.objectiveCard p {
-    font-size: 0.95rem;
-    color: #666;
-    margin: 0;
-    line-height: 1.4;
-}
-
-/* --- KPI STRIP (Barra de datos) --- */
-.kpiStrip {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    margin-bottom: 3rem;
-}
-
-.kpiItem {
-    text-align: center;
-    /* Aseguramos que tenga ancho para centrarse bien en mobile */
-    min-width: 100px; 
-}
-
-.kpiNumber {
-    display: block;
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--primary-color);
-}
-
-.kpiLabel {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.kpiDivider {
-    width: 1px;
-    height: 40px;
-    background-color: rgba(255,255,255,0.2);
-}
-
-/* --- CERTIFICADO ISO --- */
-.isoCertificate {
-    display: flex;
-    align-items: center;
-    background: linear-gradient(to right, #ffffff, #f8f9fa);
-    border: 2px solid #e9ecef;
-    padding: 2.5rem;
-    border-radius: 12px;
-    position: relative;
-    overflow: hidden;
-}
-
-.isoCertificate::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 6px;
-    background-color: var(--primary-color);
-}
-
-.isoIconWrapper {
-    width: 100px;
-    height: 100px;
-    background-color: var(--primary-color);
-    color: white;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    margin-right: 2.5rem;
-    box-shadow: 0 8px 20px rgba(211, 47, 47, 0.3);
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.isoHeader {
+.categoryHeader h2 {
+    font-size: 2rem;
+    color: #1a1a1a;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.categoryHeader p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* --- GRID DE PRODUCTOS --- */
+.productGrid {
+    display: grid;
+    /* Responsive cards */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.productCard {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.productCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    border-color: #ffdce0; /* Borde rojizo suave al hover */
+}
+
+/* Placeholder para la imagen (o contenedor de img real) */
+.productImagePlaceholder {
+    height: 180px;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.8rem;
-    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
 }
 
-.isoHeader h4 {
-    font-size: 1.6rem;
-    color: var(--secondary-color);
-    margin: 0;
-}
-
-.verifiedBadge {
-    background-color: #e8f5e9;
-    color: #2e7d32;
+/* Badge (Ej: Más Vendido) */
+.cardBadge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #fff;
+    color: #F40009;
+    font-size: 0.7rem;
+    font-weight: 800;
     padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    border-radius: 4px;
     text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 2;
 }
 
-.isoText p {
+/* Cuerpo de la tarjeta */
+.cardBody {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardBody h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.cardBody p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    flex-grow: 1; /* Empuja la lista hacia abajo */
+}
+
+/* Lista de formatos (Retornable, Pet, etc) */
+.packList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.packList li {
+    font-size: 0.85rem;
     color: #555;
-    line-height: 1.6;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.packList li svg {
+    color: #F40009; /* Check rojo */
+}
+
+.miniTag {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    align-self: flex-start;
+}
+
+/* --- CTA BANNER (Llamada a la acción final) --- */
+.ctaBanner {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Esto define el color base, pero los H3 a veces lo ignoran por reglas globales */
+    color: white; 
+    margin-top: 4rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-left: 6px solid #F40009;
+}
+
+.ctaText h3 {
+    /* AQUÍ ESTÁ LA SOLUCIÓN: Forzamos el blanco */
+    color: #ffffff !important; 
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.ctaText p {
+    /* Hacemos el texto descriptivo un gris claro muy legible */
+    color: #e0e0e0; 
     margin: 0;
 }
 
-/* Animaciones */
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+.ctaButton {
+    background-color: #F40009;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    /* Evitamos que el botón se aplaste en pantallas chicas */
+    flex-shrink: 0; 
+}
+
+.ctaButton:hover {
+    background-color: #d10008;
+}
+
+/* Contenedor de la imagen */
+.imageContainer {
+    height: 220px; /* Le damos un poquito más de altura para que respire mejor */
+    width: 100%;
+    overflow: hidden;
+    background-color: #ffffff; /* Fondo blanco limpio */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* La imagen en sí */
+.productImage {
+    /* CAMBIO CLAVE AQUÍ: */
+    width: auto;
+    height: 90%; /* Usamos el 90% de la altura para dejar un pequeño margen */
+    /* 'contain' asegura que la imagen se vea entera sin cortarse */
+    object-fit: contain; 
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+/* Efecto Zoom suave al hacer Hover en la tarjeta */
+.productCard:hover .productImage {
+    transform: scale(1.1);
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-    .header { height: 40vh; }
+    .header { height: 40vh; clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); }
     .title { font-size: 2.2rem; }
     
-    /* SOLUCIÓN 1: Quitamos el margen negativo para que no se superponga */
-    .content { margin-top: 0; } 
+    .categoryHeader { text-align: center; }
     
-    .policySection { padding: 2rem 1.5rem; }
-    
-    /* Grid de objetivos en una sola columna */
-    .objectivesGrid { grid-template-columns: 1fr; }
-    
-    /* SOLUCIÓN 2: KPI Strip en columna para que entren los datos */
-    .kpiStrip { 
-        flex-direction: column; 
-        padding: 2rem 1.5rem; 
-        gap: 2rem; 
-    }
-    
-    /* Ocultamos divisores verticales en mobile, o los hacemos horizontales */
-    .kpiDivider {
-        width: 100%;
-        height: 1px;
-    }
-    
-    .kpiNumber { font-size: 2.5rem; } /* Números grandes en mobile */
-    
-    /* Certificado ISO en columna */
-    .isoCertificate { 
-        flex-direction: column; 
-        text-align: center; 
+    .ctaBanner {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
         padding: 2rem;
     }
-    .isoIconWrapper { margin-right: 0; margin-bottom: 1.5rem; }
-    .isoHeader { justify-content: center; }
+    
+    .ctaButton { width: 100%; }
 }

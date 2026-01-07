@@ -1,51 +1,46 @@
 import React from 'react';
-import { Truck, Package, Map, Wrench, Hammer, ArrowRight } from 'lucide-react'; // Iconos nuevos
+import { Truck, Warehouse, Wrench, Smartphone, ArrowRight, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import styles from './Servicios.module.css';
 
 const Servicios = () => {
 
-  // Datos con ICONOS agregados
   const servicesList = [
     {
       id: 1,
-      title: "Distribución Directa",
-      desc: "Proveemos a Coca-Cola Femsa S.A. el mejor servicio de distribución del país desde hace más de 25 años. \n\nNuestra flota actualizada (máximo 10 años) y nuestro plantel de choferes capacitados nos permiten entregar más de 1 millón de litros de bebidas por día.",
-      tags: ["Coca-Cola Femsa", "+25 Años", "Flota Moderna"],
-      img: "https://images.unsplash.com/photo-1616432043562-3671ea2e5242?q=80&w=1920&auto=format&fit=crop",
+      title: "Distribución y Logística",
+      desc: "Como Distribuidor Oficial de Coca-Cola FEMSA, gestionamos una flota propia de camiones de gran porte y utilitarios para cubrir la Zona Oeste y Noroeste de Buenos Aires. \n\nGarantizamos la entrega 'puerta a puerta' en miles de puntos de venta (kioscos, almacenes y autoservicios) cumpliendo con los estándares de tiempo y seguridad de la marca.",
+      tags: ["Flota Propia", "Coca-Cola FEMSA", "Capilaridad"],
+      // Foto: Camión rojo de reparto en movimiento o cargado
+      img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1920&auto=format&fit=crop",
       icon: <Truck size={32} />
     },
     {
       id: 2,
-      title: "Distribuidora Rebesa",
-      desc: "Somos el distribuidor de bebidas con mayor variedad de productos en la zona Oeste (Isidro Casanova, Laferrere, Virrey del Pino).\n\nRealizamos entregas semanales con un alto índice de calidad, asegurando que los productos lleguen en tiempo y forma al punto de venta.",
-      tags: ["Logística Capilar", "Zona Oeste", "Consumo Masivo"],
-      img: "https://images.unsplash.com/photo-1590247813693-5541d1c609fd?q=80&w=1920&auto=format&fit=crop",
-      icon: <Package size={32} />
+      title: "Centro de Distribución Inteligente",
+      desc: "Operamos desde nuestra base en Loma Hermosa con un depósito de alta densidad. Utilizamos sistemas de gestión de stock (WMS) para asegurar la rotación correcta de los productos (FEFO), garantizando que las bebidas lleguen siempre frescas al consumidor.",
+      tags: ["Loma Hermosa", "Stock Real-Time", "Depósito"],
+      // Foto: Interior de un depósito grande con pallets de bebidas
+      img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920&auto=format&fit=crop",
+      icon: <Warehouse size={32} />
     },
     {
       id: 3,
-      title: "Distribución Interplanta",
-      desc: "Mantenemos equilibrado el stock de los distintos Centros de Distribución moviendo unos 130.000 cajones diarios.\n\nUtilizamos tecnología de punta integrando Tracking GPS y tablets en cabina para mantener la operación controlada de manera online.",
-      tags: ["Tecnología GPS", "Inter-Centros", "Gran Volumen"],
-      img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920&auto=format&fit=crop",
-      icon: <Map size={32} />
+      title: "Preventa y Tecnología",
+      desc: "Nuestro equipo comercial recorre la calle diariamente equipado con dispositivos móviles (Handhelds) conectados en tiempo real. \n\nEsto nos permite tomar pedidos con precisión, sugerir mix de productos personalizados para cada cliente y optimizar la ruta de entrega del día siguiente.",
+      tags: ["Fuerza de Ventas", "Tecnología Móvil", "Asesoramiento"],
+      // Foto: Persona usando tablet/tecnología o reunión de negocios
+      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1920&auto=format&fit=crop",
+      icon: <Smartphone size={32} />
     },
     {
       id: 4,
-      title: "Mantenimiento de Flotas",
-      desc: "Con más de 20 años de experiencia y 7000m² de infraestructura, realizamos mantenimiento preventivo y correctivo.\n\nContamos con especialistas en Herrería, Gomería, Pintura, Electricidad y Mecánica para reducir las fallas al mínimo.",
-      tags: ["Taller Propio", "24hs", "Preventivo"],
-      img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1920&auto=format&fit=crop",
+      title: "Mantenimiento de Flota (Taller Propio)",
+      desc: "Para asegurar la continuidad operativa, contamos con talleres propios dentro del predio. \n\nRealizamos mantenimiento preventivo, mecánica pesada, gomería y chapa y pintura in-house, asegurando que nuestras unidades estén siempre en condiciones óptimas para salir a la ruta.",
+      tags: ["Taller In-House", "Mecánica Pesada", "Seguridad Vial"],
+      // Foto: Mecánico trabajando en un camión
+      img: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=1920&auto=format&fit=crop",
       icon: <Wrench size={32} />
-    },
-    {
-      id: 5,
-      title: "Desarrollo de Carrocerías",
-      desc: "Diseñamos y fabricamos nuestras propias carrocerías adaptadas a las necesidades específicas de la distribución de bebidas, garantizando durabilidad y eficiencia en la carga.",
-      tags: ["Fabricación", "Metalúrgica", "Diseño a medida"],
-      img: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1920&auto=format&fit=crop",
-      icon: <Hammer size={32} />
     }
   ];
 
@@ -55,8 +50,12 @@ const Servicios = () => {
       {/* HEADER */}
       <header className={styles.header}>
         <div className={styles.headerContent}>
-            <h1 className={styles.title}>Nuestras Unidades de Negocio</h1>
-            <p className={styles.subtitle}>Soluciones integrales para cada etapa de la cadena logística</p>
+            <span className={styles.brandTag}>OPERACIONES YAMANIL S.A.</span>
+            <h1 className={styles.title}>Nuestros Servicios</h1>
+            <p className={styles.subtitle}>
+                Excelencia logística al servicio de las marcas <br/>
+                más importantes del mundo.
+            </p>
         </div>
       </header>
 
@@ -67,7 +66,6 @@ const Servicios = () => {
             {/* Imagen */}
             <div className={styles.imageBox}>
                 <img src={service.img} alt={service.title} />
-                {/* Overlay sutil al hacer hover */}
                 <div className={styles.imageOverlay}></div>
             </div>
 
@@ -93,9 +91,11 @@ const Servicios = () => {
           </div>
         ))}
 
-        {/* Call to Action Final */}
-        <div className={styles.ctaSection}>
-            <h3>¿Necesita una solución logística a medida?</h3>
+        <div className={styles.ctaBanner}>
+            <div className={styles.ctaText}>
+                <h3>¿Buscas un partner logístico confiable?</h3>
+                <p>Contáctanos para conocer nuestra cobertura y soluciones a medida.</p>
+            </div>
             <Link to="/contacto" className={styles.ctaButton}>
                 Contactar Ahora <ArrowRight size={20} />
             </Link>

@@ -1,16 +1,16 @@
 .pageWrapper {
     width: 100%;
-    background-color: #fcfcfc; /* Fondo muy sutil */
+    background-color: #fcfcfc;
 }
 
-/* --- HEADER (Consistente con Calidad y Home) --- */
+/* --- HEADER --- */
 .header {
-    height: 50vh; 
-    min-height: 400px;
+    height: 45vh; 
+    min-height: 350px;
     width: 100%;
-    /* Gradiente Rojo Corporativo */
+    /* Fondo con camiones/ruta y degradado rojo */
     background: linear-gradient(135deg, rgba(160, 20, 20, 0.85), rgba(20, 20, 20, 0.9)),
-                url('https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1920&auto=format&fit=crop');
+                url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=1920&auto=format&fit=crop');
     
     background-size: cover;
     background-position: center;
@@ -18,29 +18,48 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var(--white);
+    color: white;
     
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
     padding-bottom: 4rem;
-    margin-bottom: 4rem; /* Margen para no pegar contenido */
+    margin-bottom: 4rem;
 }
 
-.title {
-    font-size: 3rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    text-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    margin-bottom: 0.5rem;
+.headerContent {
+    max-width: 800px;
+    padding: 0 20px;
     animation: fadeIn 1s ease-in;
 }
 
-.subtitle {
-    font-size: 1.2rem;
-    font-weight: 300;
-    opacity: 0.9;
+.brandTag {
+    display: inline-block;
+    background-color: rgba(255,255,255,0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
     letter-spacing: 1px;
-    max-width: 600px;
-    margin: 0 auto;
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    /* Sombra idéntica a la de Nosotros */
+    text-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+    margin-bottom: 1rem;
+    line-height: 1;
+    /* Color blanco puro para igualar */
+    color: #ffffff; 
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    font-weight: 300;
+    opacity: 0.95;
+    line-height: 1.6;
 }
 
 /* --- CONTENEDOR PRINCIPAL --- */
@@ -54,10 +73,8 @@
 .serviceRow {
     display: flex;
     align-items: center;
-    gap: 5rem; /* Más espacio entre imagen y texto */
-    margin-bottom: 8rem; /* Separación clara entre servicios */
-    /* Animación de entrada al hacer scroll (requeriría IntersectionObserver en JS, 
-       pero por CSS simple usamos fadeIn) */
+    gap: 4rem;
+    margin-bottom: 6rem;
     animation: slideUp 0.8s ease-out;
 }
 
@@ -69,8 +86,8 @@
 /* --- IMAGEN --- */
 .imageBox {
     flex: 1;
-    height: 400px; /* Un poco más alto para impacto */
-    border-radius: 8px;
+    height: 350px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     position: relative;
@@ -84,14 +101,13 @@
     transition: transform 0.6s ease;
 }
 
-/* Efecto Hover Premium */
 .imageBox:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(211, 47, 47, 0.15); /* Sombra roja sutil */
+    box-shadow: 0 20px 40px rgba(244, 0, 9, 0.15); /* Sombra roja sutil */
 }
 
 .imageBox:hover img {
-    transform: scale(1.08);
+    transform: scale(1.05);
 }
 
 /* --- TEXTO --- */
@@ -104,20 +120,20 @@
 
 .iconWrapper {
     background-color: var(--primary-color);
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     margin-bottom: 1.5rem;
-    box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
+    box-shadow: 0 4px 10px rgba(244, 0, 9, 0.3);
 }
 
 .serviceTitle {
-    color: var(--secondary-color);
-    font-size: 2.2rem;
+    color: #1a1a1a;
+    font-size: 2rem;
     font-weight: 800;
     margin-bottom: 1rem;
     line-height: 1.2;
@@ -131,7 +147,7 @@
 }
 
 .serviceDesc {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: #555;
     margin-bottom: 2rem;
     white-space: pre-line;
@@ -147,40 +163,63 @@
 
 .badge {
     display: inline-block;
-    /* Fondo rojizo muy suave para branding */
     background-color: #fff5f5; 
     color: var(--primary-color);
     padding: 6px 14px;
-    border-radius: 30px; /* Badges más redondos */
-    font-size: 0.85rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     border: 1px solid #ffebee;
-    transition: all 0.3s ease;
-}
-
-.badge:hover {
-    background-color: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
 }
 
 /* --- CALL TO ACTION FINAL --- */
-.ctaSection {
-    background-color: var(--secondary-color); /* Fondo oscuro */
-    color: white;
-    padding: 4rem 2rem;
+.ctaBanner {
+    background-color: #1a1a1a;
     border-radius: 12px;
-    text-align: center;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
     margin-top: 4rem;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    /* El borde rojo característico a la izquierda */
+    border-left: 6px solid #F40009;
 }
 
-.ctaSection h3 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+.ctaText h3 {
+    color: #ffffff !important; /* Forzamos blanco puro */
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
     font-weight: 700;
+}
+
+.ctaText p {
+    color: #e0e0e0;
+    margin: 0;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #F40009;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.ctaButton:hover {
+    background-color: #d10008;
+    transform: translateY(-2px);
 }
 
 .ctaButton {
@@ -189,8 +228,8 @@
     gap: 10px;
     background-color: var(--primary-color);
     color: white;
-    padding: 15px 35px;
-    border-radius: 4px;
+    padding: 12px 30px;
+    border-radius: 50px;
     font-weight: 700;
     text-transform: uppercase;
     text-decoration: none;
@@ -204,18 +243,18 @@
 }
 
 /* Animaciones */
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .header { height: 40vh; }
-    .title { font-size: 2rem; }
+    .header { height: 40vh; clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); }
+    .title { font-size: 2.2rem; }
     
     .serviceRow {
-        flex-direction: column !important;
+        flex-direction: column !important; /* Apilar siempre en móvil */
         gap: 2rem;
-        margin-bottom: 5rem;
+        margin-bottom: 4rem;
         text-align: left;
     }
     
@@ -225,8 +264,15 @@
     }
     
     .textBox {
-        align-items: flex-start; /* Alineación izquierda en móvil */
+        align-items: flex-start;
+    }
+
+    .ctaBanner {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 2rem;
     }
     
-    .ctaSection h3 { font-size: 1.5rem; }
+    .ctaButton { width: 100%; justify-content: center; }
 }
