@@ -1,15 +1,14 @@
 .container {
     padding-bottom: 4rem;
     width: 100%;
-    background-color: #f9f9f9; /* Fondo general gris muy suave */
+    background-color: #f9f9f9;
 }
 
-/* --- HEADER (Estilo consistente con Home) --- */
+/* --- HEADER --- */
 .header {
     height: 50vh; 
     min-height: 400px;
     width: 100%;
-    /* Gradiente Rojo/Negro + Imagen de fondo */
     background: linear-gradient(135deg, rgba(160, 20, 20, 0.85), rgba(20, 20, 20, 0.9)),
                 url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920&auto=format&fit=crop');
     background-size: cover;
@@ -20,9 +19,11 @@
     text-align: center;
     color: var(--white);
     
-    /* Corte diagonal */
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    
     padding-bottom: 4rem;
+    
+    /* CAMBIO: Margen inferior para asegurar que no se pegue el contenido */
     margin-bottom: 2rem;
 }
 
@@ -45,6 +46,7 @@
 /* --- CONTENIDO --- */
 .content {
     max-width: 1000px;
+    /* CAMBIO: Quitamos márgenes negativos globales y aseguramos centrado */
     margin: 0 auto;
     padding: 0 20px;
     position: relative;
@@ -55,8 +57,8 @@
     background: var(--white);
     padding: 4rem;
     border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Sombra más suave y moderna */
-    border-top: 5px solid var(--primary-color); /* Borde rojo arriba */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-top: 5px solid var(--primary-color);
     animation: slideUp 0.8s ease-out;
 }
 
@@ -85,13 +87,13 @@
     color: #555;
     line-height: 1.8;
     margin-bottom: 1.5rem;
-    text-align: center; /* O justify si prefieres */
+    text-align: center;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* --- GRID DE OBJETIVOS (Mejorado) --- */
+/* --- GRID DE OBJETIVOS --- */
 .objectivesGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -114,11 +116,11 @@
 .objectiveCard:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    border-color: #ffdce0; /* Rojo muy claro */
+    border-color: #ffdce0;
 }
 
 .iconBox {
-    background-color: #ffebee; /* Rojo muy claro */
+    background-color: #ffebee;
     color: var(--primary-color);
     padding: 10px;
     border-radius: 8px;
@@ -156,13 +158,15 @@
 
 .kpiItem {
     text-align: center;
+    /* Aseguramos que tenga ancho para centrarse bien en mobile */
+    min-width: 100px; 
 }
 
 .kpiNumber {
     display: block;
     font-size: 2rem;
     font-weight: 900;
-    color: var(--primary-color); /* Rojo sobre fondo oscuro */
+    color: var(--primary-color);
 }
 
 .kpiLabel {
@@ -177,7 +181,7 @@
     background-color: rgba(255,255,255,0.2);
 }
 
-/* --- CERTIFICADO ISO (Diseño Premium) --- */
+/* --- CERTIFICADO ISO --- */
 .isoCertificate {
     display: flex;
     align-items: center;
@@ -189,7 +193,6 @@
     overflow: hidden;
 }
 
-/* Decoración lateral roja */
 .isoCertificate::before {
     content: '';
     position: absolute;
@@ -211,7 +214,7 @@
     justify-content: center;
     flex-shrink: 0;
     margin-right: 2.5rem;
-    box-shadow: 0 8px 20px rgba(211, 47, 47, 0.3); /* Sombra Roja */
+    box-shadow: 0 8px 20px rgba(211, 47, 47, 0.3);
 }
 
 .isoHeader {
@@ -229,8 +232,8 @@
 }
 
 .verifiedBadge {
-    background-color: #e8f5e9; /* Verde muy claro */
-    color: #2e7d32; /* Verde oscuro */
+    background-color: #e8f5e9;
+    color: #2e7d32;
     padding: 4px 10px;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -251,15 +254,35 @@
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Responsive */
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     .header { height: 40vh; }
     .title { font-size: 2.2rem; }
-    .content { margin-top: -3rem; } /* Menos margen negativo en móvil */
+    
+    /* SOLUCIÓN 1: Quitamos el margen negativo para que no se superponga */
+    .content { margin-top: 0; } 
+    
     .policySection { padding: 2rem 1.5rem; }
     
+    /* Grid de objetivos en una sola columna */
     .objectivesGrid { grid-template-columns: 1fr; }
     
+    /* SOLUCIÓN 2: KPI Strip en columna para que entren los datos */
+    .kpiStrip { 
+        flex-direction: column; 
+        padding: 2rem 1.5rem; 
+        gap: 2rem; 
+    }
+    
+    /* Ocultamos divisores verticales en mobile, o los hacemos horizontales */
+    .kpiDivider {
+        width: 100%;
+        height: 1px;
+    }
+    
+    .kpiNumber { font-size: 2.5rem; } /* Números grandes en mobile */
+    
+    /* Certificado ISO en columna */
     .isoCertificate { 
         flex-direction: column; 
         text-align: center; 
@@ -267,7 +290,4 @@
     }
     .isoIconWrapper { margin-right: 0; margin-bottom: 1.5rem; }
     .isoHeader { justify-content: center; }
-    
-    .kpiStrip { padding: 1.5rem; gap: 1rem; }
-    .kpiNumber { font-size: 1.5rem; }
 }
