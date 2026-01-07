@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Importamos Link
 import { ShoppingBag, Droplet, Check } from 'lucide-react'; 
 import styles from './Calidad.module.css';
 
@@ -158,7 +159,7 @@ const Calidad = () => {
                     </div>
                 </div>
 
-                {/* Producto: Monster (IMAGEN ACTUALIZADA) */}
+                {/* Producto: Monster */}
                 <div className={styles.productCard}>
                     <div className={styles.imageContainer}>
                         <img 
@@ -176,13 +177,16 @@ const Calidad = () => {
             </div>
         </section>
 
-        {/* Banner Final */}
+        {/* Banner Final (ACTUALIZADO CON LINK) */}
         <div className={styles.ctaBanner}>
             <div className={styles.ctaText}>
                 <h3>¿Necesitas abastecer tu negocio?</h3>
                 <p>Consulta nuestra lista de precios actualizada y zonas de reparto.</p>
             </div>
-            <button className={styles.ctaButton}>Contactar Vendedor</button>
+            {/* Botón ahora es un Link a /contacto */}
+            <Link to="/contacto" className={styles.ctaButton}>
+                Contactar Vendedor
+            </Link>
         </div>
 
       </div>
