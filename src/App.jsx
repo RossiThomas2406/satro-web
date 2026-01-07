@@ -10,6 +10,8 @@ import Productos from './pages/Productos/Productos';
 import Servicios from './pages/Servicios/Servicios';
 import Nosotros from './pages/Nosotros/Nosotros';
 import Contacto from './pages/Contacto/Contacto';
+import WhatsAppFloat from './components/WhatsAppFloat/WhatsAppFloat';
+import Chatbot from './components/Chatbot/Chatbot';
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
         <Footer />
       
       </div>
+      <WhatsAppFloat />
+      <Chatbot />
     </Router>
   );
 }
