@@ -3,7 +3,7 @@
 Sitio web desarrollado para **Yamanil**, enfocado en ofrecer una experiencia de usuario fluida y moderna.
 
 ### 🔗 Enlaces útiles
-- **Demo en vivo:** [https://satro-web.vercel.app](https://yamanil-web.vercel.app/)
+- **Demo en vivo:** [https://yamanil-web.vercel.app](https://yamanil-web.vercel.app/)
 - **LinkedIn del desarrollador:** [Thomas Rossi](https://www.linkedin.com/in/thomas-rossi-0255553a4/)
 
 ---
