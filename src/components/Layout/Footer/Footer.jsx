@@ -38,7 +38,7 @@ const Footer = () => {
           <ul className={styles.linkList}>
             <li><Link to="/"><ChevronRight size={16} className={styles.chevron}/> Inicio</Link></li>
             <li><Link to="/calidad"><ChevronRight size={16} className={styles.chevron}/> Productos</Link></li>
-            <li><Link to="/servicios"><ChevronRight size={16} className={styles.chevron}/> Distribución</Link></li>
+            <li><Link to="/productos"><ChevronRight size={16} className={styles.chevron}/> Distribución</Link></li>
             <li><Link to="/contacto"><ChevronRight size={16} className={styles.chevron}/> Contacto</Link></li>
           </ul>
         </div>
