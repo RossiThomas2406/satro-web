@@ -63,7 +63,7 @@ const partners = [
           </p>
           
           <div className={styles.buttonGroup}>
-            <Link to="/calidad" className={styles.primaryBtn}>
+            <Link to="/productos" className={styles.primaryBtn}>
               Ver Productos
             </Link>
             <Link to="/contacto" className={styles.secondaryBtn}>
